@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="order-form">
+  <h2>New Order</h2>
+
+  <form method="post" action="/order-form">
+    <label>Table Number</label>
+    <input type="text" name="table" required>
+
+    <div id="items">
+      <div class="item-row">
+        <input type="text" name="name[]" placeholder="Food name" required>
+
+        <select name="section[]">
+          <option value="fry">Fry</option>
+          <option value="grill">Grill</option>
+          <option value="salad">Salad</option>
+          <option value="dessert">Dessert</option>
+          <option value="beverage">Beverage</option>
+          <option value="pizza">Pizza</option>
+        </select>
+      </div>
+    </div>
+
+    <button type="button" onclick="addItem()">+ Add Item</button>
+    <button type="submit">Send Order</button>
+  </form>
+</div>
+{% endblock %}
+

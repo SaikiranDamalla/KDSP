@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>KDS</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+</head>
+<body>
+<header>KITCHEN DISPLAY SYSTEM</header>
+<nav class="navbar">
+  <!--<div class="logo">KDS</div>-->
+
+  <ul class="nav-links">
+    <li><a href="/">Expedite</a></li>
+    <li><a href="/order">Order</a></li>
+    <li class="dropdown">
+      <a href="#">Services ▾</a>
+      <ul class="dropdown-menu">
+        <li><a href="/section/fry">Fry</a></li>
+        <li><a href="/section/grill">Grill</a></li>
+        <li><a href="/section/salad">Salad</a></li>
+        <li><a href="/section/dessert">Dessert</a></li>
+        <li><a href="/section/beverage">Beverage</a></li>
+        <li><a href="/section/pizza">Pizza</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+{% block content %}{% endblock %}
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

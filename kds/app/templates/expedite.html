@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="board">
+  {% for order in orders %}
+    <div class="ticket {{ 'done' if order.is_completed else 'cooking' }}">
+      
+      <h3>Table {{ order.table_number }}</h3>
+
+      <p class="status">
+        Status:
+        {% if order.is_completed %}
+          <span class="done-text">DONE ✓</span>
+        {% else %}
+          <span class="cooking-text">COOKING</span>
+        {% endif %}
+      </p>
+
+      <ul>
+        {% for item in order.items %}
+          <li class="{{ item.status }}">
+            {{ item.name }}
+            {% if item.status == 'done' %} ✓ {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+
+      {% if order.is_completed %}
+        <button onclick="serve({{ order.id }})">Served</button>
+      {% endif %}
+
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}
+
